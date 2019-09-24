@@ -5,10 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -18,6 +21,7 @@ import { MatInputModule } from '@angular/material';
     MatInputModule,
   ],
   exports: [
+    HeaderComponent,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
