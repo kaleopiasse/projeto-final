@@ -11,7 +11,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <a mat-list-item href="..." *ngFor="let item of item.members"> {{ item.name }}
+          <a mat-list-item [routerLink]="['/1']" *ngFor="let item of item.members"> {{ item.name }}
             <span class="pl-5">{{ item.lastAvaliation }}</span></a>
         </mat-nav-list>
       </mat-expansion-panel>

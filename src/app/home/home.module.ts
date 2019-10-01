@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { TeamPanelComponent } from './main/team-panel/team-panel.component';
+import { PersonalPageComponent } from './personal-page/personal-page.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { TeamPanelComponent } from './main/team-panel/team-panel.component';
     HomeComponent,
     MainComponent,
     TeamPanelComponent,
+    PersonalPageComponent,
   ],
   imports: [
     CommonModule,

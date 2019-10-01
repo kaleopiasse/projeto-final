@@ -2,14 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { MainComponent } from './main/main.component';
+import { PersonalPageComponent } from './personal-page/personal-page.component';
 
 
 const childRoutes: Routes = [
-  { path: '', component: MainComponent }
+  { path: '', component: MainComponent },
+
+  { path: ':id', component: PersonalPageComponent },
 ];
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, children: childRoutes }
+  { path: '', component: HomeComponent, children: childRoutes },
 ];
 
 @NgModule({
