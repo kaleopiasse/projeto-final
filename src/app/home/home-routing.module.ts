@@ -8,7 +8,7 @@ import { PersonalPageComponent } from './personal-page/personal-page.component';
 const childRoutes: Routes = [
   { path: '', component: MainComponent },
 
-  { path: ':id', component: PersonalPageComponent },
+  { path: 'personal/:id', component: PersonalPageComponent },
 ];
 
 const routes: Routes = [

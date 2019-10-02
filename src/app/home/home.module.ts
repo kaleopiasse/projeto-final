@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { TeamPanelComponent } from './main/team-panel/team-panel.component';
 import { PersonalPageComponent } from './personal-page/personal-page.component';
+import { SearchCollaboratorsComponent } from './main/search-collaborators/search-collaborators.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PersonalPageComponent } from './personal-page/personal-page.component';
     MainComponent,
     TeamPanelComponent,
     PersonalPageComponent,
+    SearchCollaboratorsComponent,
   ],
   imports: [
     CommonModule,
