@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -8,14 +9,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from './components/header/header.component';
+import { MovingMotivationalComponent } from './moving-motivational/moving-motivational.component';
+
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    MovingMotivationalComponent,
   ],
   imports: [
     CommonModule,
+    DragDropModule,
     MatButtonModule,
     MatCardModule,
     MatExpansionModule,
@@ -25,6 +30,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatListModule
   ],
   exports: [
+    DragDropModule,
     HeaderComponent,
     MatButtonModule,
     MatCardModule,
@@ -32,7 +38,8 @@ import { HeaderComponent } from './components/header/header.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MovingMotivationalComponent,
   ]
 })
 export class SharedModule { }

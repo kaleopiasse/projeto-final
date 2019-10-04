@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { MainComponent } from './main/main.component';
-import { PersonalPageComponent } from './personal-page/personal-page.component';
+import { PersonalPageComponent } from './main/personal-page/personal-page.component';
 
 
 const childRoutes: Routes = [
