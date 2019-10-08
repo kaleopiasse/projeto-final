@@ -1,0 +1,15 @@
+<div class="pt-5">
+  <div class="card">
+    <h4 class="card-header">Moving Motivators</h4>
+    <div class="card-body example-boundary">
+      <div class="example-box col-1 m-0" *ngFor="let card of cardsinfo" cdkDragBoundary=".example-boundary" cdkDrag>
+        <div class="d-flex flex-column">
+          <div>
+            <p class="m-0 text-card">{{ card.text}}</p>
+          </div>
+          <i [ngClass]="card.icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
