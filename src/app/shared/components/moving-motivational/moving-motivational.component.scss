@@ -27,7 +27,11 @@
 
 .example-boundary {
   max-width: 100%;
-  border: dotted #ccc 2px;
+  min-height: 120px;
+}
+
+.text-card {
+  font-size: 12px;
 }
 
 i {

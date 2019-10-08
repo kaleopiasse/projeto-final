@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from './components/header/header.component';
-import { MovingMotivationalComponent } from './moving-motivational/moving-motivational.component';
+import { MovingMotivationalComponent } from './components/moving-motivational/moving-motivational.component';
 
 
 
