@@ -1,0 +1,17 @@
+<ng-container *ngFor="let item of teams">
+  <div class="mt-4">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Próximos 3 meses
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item [routerLink]="['personal/1']" *ngFor="let item of item.members"> {{ item.name }}
+            <span class="pl-5">{{ item.lastAvaliation }}</span></a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</ng-container>

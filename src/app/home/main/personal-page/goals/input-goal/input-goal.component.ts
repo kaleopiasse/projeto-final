@@ -6,11 +6,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './input-goal.component.html',
   styleUrls: ['./input-goal.component.scss']
 })
+
+interface Goal {
+  goalDescription: string;
+  validator: string;
+  period: string;
+}
+
 export class InputGoalComponent implements OnInit {
 
   goalForm = new FormGroup({
+    goalDescription: new FormControl('', [Validators.required]),
     period: new FormControl('', [Validators.required]),
+    validator: new FormControl('', [Validators.required])
   });
+
+  json: Goal[] = [];
 
   period = [
     {text: 'Próximos 3 meses'},
@@ -24,6 +35,15 @@ export class InputGoalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addGoal() {
+    console.log(this.goalForm);
+    this.json.push(this.goalForm.value.goalDescription);
+  }
+
+  cancelGoal() {
+
   }
 
 }
