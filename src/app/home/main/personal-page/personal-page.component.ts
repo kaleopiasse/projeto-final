@@ -7,9 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalPageComponent implements OnInit {
 
+  step = 2;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  continue() {
+    switch (this.step) {
+      case 1:
+        this.step++;
+        break;
+      default:
+        this.step--;
+        break;
+    }
+  }
+
+  back() {
+    switch (this.step) {
+      case 2:
+        this.step--;
+        break;
+      default:
+        this.step--;
+        break;
+    }
   }
 
 }
