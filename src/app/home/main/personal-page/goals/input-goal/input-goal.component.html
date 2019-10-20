@@ -15,7 +15,7 @@
         <mat-label>Periodo</mat-label>
         <mat-select [formControl]="goalForm.controls['period']" required>
           <mat-option>--</mat-option>
-          <mat-option *ngFor="let option of period" [value]="option">
+          <mat-option *ngFor="let option of period" [value]="option.value">
             {{ option.text }}
           </mat-option>
         </mat-select>

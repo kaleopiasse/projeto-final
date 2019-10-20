@@ -1,17 +1,11 @@
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-goal',
   templateUrl: './input-goal.component.html',
   styleUrls: ['./input-goal.component.scss']
 })
-
-interface Goal {
-  goalDescription: string;
-  validator: string;
-  period: string;
-}
 
 export class InputGoalComponent implements OnInit {
 
@@ -21,14 +15,14 @@ export class InputGoalComponent implements OnInit {
     validator: new FormControl('', [Validators.required])
   });
 
-  json: Goal[] = [];
+  @Output() goals = new EventEmitter();
 
   period = [
-    {text: 'Próximos 3 meses'},
-    {text: 'Próximos 6 meses'},
-    {text: 'Daqui 1 ano'},
-    {text: 'Daqui 2 anos'},
-    {text: 'Daqui 3 anos'},
+    {text: 'Próximos 3 meses', value: 1},
+    {text: 'Próximos 6 meses', value: 2},
+    {text: 'Daqui 1 ano', value: 3},
+    {text: 'Daqui 2 anos', value: 4},
+    {text: 'Daqui 3 anos', value: 5},
   ];
 
 
@@ -38,8 +32,12 @@ export class InputGoalComponent implements OnInit {
   }
 
   addGoal() {
-    console.log(this.goalForm);
-    this.json.push(this.goalForm.value.goalDescription);
+    this.goals.emit({
+        period: this.goalForm.value.period,
+        goalDescription: this.goalForm.value.goalDescription,
+        validator: this.goalForm.value.validator,
+        status: 'progress',
+    });
   }
 
   cancelGoal() {

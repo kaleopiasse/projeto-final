@@ -8,8 +8,8 @@
       <span class="pl-2 font-weight-bold">Adicionar Meta</span>
     </ng-container>
     <ng-template #input>
-      <app-input-goal></app-input-goal>
+      <app-input-goal (goals)="reciverGoal($event)"></app-input-goal>
     </ng-template>
-    <app-list-goals></app-list-goals>
+    <app-list-goals [goals]="goals"></app-list-goals>
   </div>
 </div>

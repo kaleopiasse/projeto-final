@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+interface Goal {
+  goalDescription: string;
+  validator: string;
+  period: string;
+}
 
 @Component({
   selector: 'app-list-goals',
@@ -7,50 +13,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListGoalsComponent implements OnInit {
 
-  teams = [
-    {
-      teamName: 'Time 1',
-      members: [
-        {
-          name: 'Kaleo Aparecido Piasse',
-          lastAvaliation: '24/05/2019'
-        },
-        {
-          name: 'Nome Sobrenome 1',
-          lastAvaliation: '24/02/2019'
-        },
-        {
-          name: 'Nome Sobrenome 2',
-          lastAvaliation: '24/03/2019'
-        },
-        {
-          name: 'Nome Sobrenome 3',
-          lastAvaliation: '14/05/2019'
-        }
-      ]
-    },
-    {
-      teamName: 'Time 2',
-      members: [
-        {
-          name: 'Nome Sobrenome 4',
-          lastAvaliation: '15/01/2019'
-        },
-        {
-          name: 'Nome Sobrenome 5',
-          lastAvaliation: '17/09/2019'
-        },
-        {
-          name: 'Nome Sobrenome 6',
-          lastAvaliation: '31/09/2019'
-        },
-        {
-          name: 'Nome Sobrenome 7',
-          lastAvaliation: '10/10/2019'
-        }
-      ]
-    }
-  ]
+  @Input() goals: Goal[];
+
+  objectKeys = Object.keys;
+
+  period = {
+    1: 'Próximos 3 meses',
+    2: 'Próximos 6 meses',
+    3: 'Daqui 1 ano',
+    4: 'Daqui 2 anos',
+    5: 'Daqui 3 anos',
+  };
 
   constructor() { }
 
