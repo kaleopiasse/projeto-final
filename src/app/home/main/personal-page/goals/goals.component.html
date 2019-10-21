@@ -1,0 +1,15 @@
+<div class="card">
+  <h4 class="card-header">Minhas Metas</h4>
+  <div class="card-body">
+    <ng-container *ngIf="showAddGoal; else input">
+      <button type="button" class="btn btn-primary" (click)="addGoal()">
+        <i class="fnt-size-24px fas fa-plus-square"></i>
+      </button>
+      <span class="pl-2 font-weight-bold">Adicionar Meta</span>
+    </ng-container>
+    <ng-template #input>
+      <app-input-goal (goals)="reciverGoal($event)" (cancel)="showAddGoal=$event"></app-input-goal>
+    </ng-template>
+    <app-list-goals [goals]="goals"></app-list-goals>
+  </div>
+</div>

@@ -9,6 +9,10 @@ import { TeamPanelComponent } from './main/team-panel/team-panel.component';
 import { PersonalPageComponent } from './main/personal-page/personal-page.component';
 import { SearchCollaboratorsComponent } from './main/search-collaborators/search-collaborators.component';
 import { PersonalCardComponent } from './main/personal-page/personal-card/personal-card.component';
+import { GoalsComponent } from './main/personal-page/goals/goals.component';
+import { InputGoalComponent } from './main/personal-page/goals/input-goal/input-goal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListGoalsComponent } from './main/personal-page/goals/list-goals/list-goals.component';
 
 
 @NgModule({
@@ -19,10 +23,14 @@ import { PersonalCardComponent } from './main/personal-page/personal-card/person
     PersonalPageComponent,
     SearchCollaboratorsComponent,
     PersonalCardComponent,
+    GoalsComponent,
+    InputGoalComponent,
+    ListGoalsComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
+    ReactiveFormsModule,
     HomeRoutingModule
   ]
 })

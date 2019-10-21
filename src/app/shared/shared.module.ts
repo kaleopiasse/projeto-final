@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from './components/header/header.component';
 import { MovingMotivationalComponent } from './components/moving-motivational/moving-motivational.component';
 
@@ -27,7 +28,8 @@ import { MovingMotivationalComponent } from './components/moving-motivational/mo
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
   ],
   exports: [
     DragDropModule,
@@ -39,6 +41,7 @@ import { MovingMotivationalComponent } from './components/moving-motivational/mo
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatSelectModule,
     MovingMotivationalComponent,
   ]
 })

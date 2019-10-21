@@ -1,3 +1,4 @@
+import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-collaborators.component.scss']
 })
 export class SearchCollaboratorsComponent implements OnInit {
+
+  userForm = new FormGroup({
+    user: new FormControl(),
+  });
 
   users = [
     {
