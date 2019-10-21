@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalPageComponent implements OnInit {
 
-  step = 2;
+  step = 3;
 
   constructor() { }
 
