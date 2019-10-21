@@ -17,6 +17,7 @@ export class PersonalPageComponent implements OnInit {
   continue() {
     switch (this.step) {
       case 1:
+      case 2:
         this.step++;
         break;
       default:
@@ -28,6 +29,7 @@ export class PersonalPageComponent implements OnInit {
   back() {
     switch (this.step) {
       case 2:
+      case 3:
         this.step--;
         break;
       default:

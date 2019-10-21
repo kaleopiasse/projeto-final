@@ -1,0 +1,26 @@
+<ng-container *ngFor="let item of questions; let isFirst = first;">
+    <div [ngClass]="{'mt-4': !isFirst}">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ item }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item>
+            <div mat-line class="row">
+              <div class="col-4 font-weight-bold">
+                <p class="d-inline">Meta</p>
+              </div>
+              <div class="col-4 font-weight-bold">
+                <p class="d-inline">Validador</p>
+              </div>
+              <div class="col-4 d-flex justify-content-end font-weight-bold">
+                <p class="d-inline">Status</p>
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </ng-container>
