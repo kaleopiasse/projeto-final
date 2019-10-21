@@ -22,7 +22,7 @@
           <ng-container *ngFor="let item of goals[key]; let isFirst = first;">
             <div mat-line class="row" [ngClass]="{ 'pt-2': !isFirst }">
               <div class="col-4">
-                <p class="d-inline">{{ item.goalDescription }}</p>
+                <p class="d-inline">{{ item.description }}</p>
               </div>
               <div class="col-4">
                 <p class="d-inline"> {{ item.validator }}</p>

@@ -1,10 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-interface Goal {
-  goalDescription: string;
-  validator: string;
-  period: string;
-}
+import { Goal } from 'src/app/core/models';
 
 @Component({
   selector: 'app-list-goals',
