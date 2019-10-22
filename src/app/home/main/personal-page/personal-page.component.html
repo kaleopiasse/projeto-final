@@ -10,7 +10,7 @@
     <app-goals></app-goals>
   </div>
   <div class="mt-5" *ngSwitchCase="3">
-    <app-self-feedback></app-self-feedback>
+    <app-self-feedback (formEmiter)="formSelfFeedback=$event"></app-self-feedback>
   </div>
 </ng-container>
 

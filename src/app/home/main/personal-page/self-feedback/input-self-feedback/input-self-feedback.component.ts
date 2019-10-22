@@ -1,5 +1,5 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-self-feedback',
@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class InputSelfFeedbackComponent implements OnInit {
 
   @Input() questions;
+  @Output() formSelfFeedback = new EventEmitter();
 
   formQuestions: FormGroup;
 
@@ -20,11 +21,11 @@ export class InputSelfFeedbackComponent implements OnInit {
     this.formQuestions = this.formBuilder.group({});
 
     this.questions.forEach((item, i) => {
-      const fieldControl = this.formBuilder.control('');
+      const fieldControl = this.formBuilder.control('', Validators.required);
       this.formQuestions.addControl(`question${i}`, fieldControl);
     });
 
-    console.log(this.formQuestions);
+    setTimeout(() => this.formSelfFeedback.emit(this.formQuestions), 500);
   }
 
 }

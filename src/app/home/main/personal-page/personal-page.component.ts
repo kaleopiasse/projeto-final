@@ -1,3 +1,5 @@
+import { FormUtil } from 'src/app/core/utils';
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PersonalPageComponent implements OnInit {
 
   step = 3;
+  formSelfFeedback: FormGroup;
 
   constructor() { }
 
@@ -18,6 +21,13 @@ export class PersonalPageComponent implements OnInit {
     switch (this.step) {
       case 1:
       case 2:
+        this.step++;
+        break;
+      case 3:
+        FormUtil.validateForm(this.formSelfFeedback);
+        if (this.formSelfFeedback.invalid) {
+          return;
+        }
         this.step++;
         break;
       default:

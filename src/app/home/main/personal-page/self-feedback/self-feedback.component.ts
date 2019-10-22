@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-self-feedback',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./self-feedback.component.scss']
 })
 export class SelfFeedbackComponent implements OnInit {
+
+  @Output() formEmiter =  new EventEmitter();
+
+  formSelfFeedback: FormGroup;
 
   questions = [
     '1. Como tem sido meu desempenho técnico?',
@@ -22,6 +27,11 @@ export class SelfFeedbackComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  emitForm(form: FormGroup) {
+    this.formSelfFeedback = form;
+    this.formEmiter.emit(this.formSelfFeedback);
   }
 
 }
