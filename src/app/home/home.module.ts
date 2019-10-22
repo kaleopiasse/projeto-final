@@ -13,6 +13,8 @@ import { GoalsComponent } from './main/personal-page/goals/goals.component';
 import { InputGoalComponent } from './main/personal-page/goals/input-goal/input-goal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListGoalsComponent } from './main/personal-page/goals/list-goals/list-goals.component';
+import { SelfFeedbackComponent } from './main/personal-page/self-feedback/self-feedback.component';
+import { InputSelfFeedbackComponent } from './main/personal-page/self-feedback/input-self-feedback/input-self-feedback.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { ListGoalsComponent } from './main/personal-page/goals/list-goals/list-g
     GoalsComponent,
     InputGoalComponent,
     ListGoalsComponent,
+    SelfFeedbackComponent,
+    InputSelfFeedbackComponent,
   ],
   imports: [
     CommonModule,

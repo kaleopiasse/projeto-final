@@ -1,0 +1,25 @@
+<form [formGroup]="formQuestions">
+<ng-container *ngFor="let item of questions; let index = index; let isFirst = first;">
+    <div [ngClass]="{'mt-4': !isFirst}">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ item }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item>
+            <div mat-line class="row">
+              <div class="col-12 font-weight-bold">
+                <mat-form-field class="d-inline">
+                  <input matInput placeholder="Resposta" [formControl]="formQuestions.controls['question'+index]" required>
+                  <mat-error *ngIf="formQuestions.controls['question'+index]">Campo Obrigatório</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </ng-container>
+</form>
