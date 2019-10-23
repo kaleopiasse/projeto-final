@@ -9,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalPageComponent implements OnInit {
 
-  step = 3;
+  step = 4;
   formSelfFeedback: FormGroup;
+  formSkills: FormGroup;
 
   constructor() { }
 
@@ -30,18 +31,21 @@ export class PersonalPageComponent implements OnInit {
         }
         this.step++;
         break;
+      case 4:
+        FormUtil.validateForm(this.formSkills);
+        if (this.formSkills.invalid) {
+          return;
+        }
+        this.step++;
+        break;
       default:
-        this.step--;
+        this.step++;
         break;
     }
   }
 
   back() {
     switch (this.step) {
-      case 2:
-      case 3:
-        this.step--;
-        break;
       default:
         this.step--;
         break;

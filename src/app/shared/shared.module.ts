@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 import { HeaderComponent } from './components/header/header.component';
 import { MovingMotivationalComponent } from './components/moving-motivational/moving-motivational.component';
 
@@ -30,6 +31,7 @@ import { MovingMotivationalComponent } from './components/moving-motivational/mo
     MatInputModule,
     MatListModule,
     MatSelectModule,
+    MatTableModule,
   ],
   exports: [
     DragDropModule,
@@ -42,6 +44,7 @@ import { MovingMotivationalComponent } from './components/moving-motivational/mo
     MatInputModule,
     MatListModule,
     MatSelectModule,
+    MatTableModule,
     MovingMotivationalComponent,
   ]
 })

@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListGoalsComponent } from './main/personal-page/goals/list-goals/list-goals.component';
 import { SelfFeedbackComponent } from './main/personal-page/self-feedback/self-feedback.component';
 import { InputSelfFeedbackComponent } from './main/personal-page/self-feedback/input-self-feedback/input-self-feedback.component';
+import { WheelOfSkillsComponent } from './main/personal-page/wheel-of-skills/wheel-of-skills.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { InputSelfFeedbackComponent } from './main/personal-page/self-feedback/i
     ListGoalsComponent,
     SelfFeedbackComponent,
     InputSelfFeedbackComponent,
+    WheelOfSkillsComponent,
   ],
   imports: [
     CommonModule,
