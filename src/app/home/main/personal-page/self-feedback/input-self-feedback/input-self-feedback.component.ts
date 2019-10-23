@@ -25,7 +25,7 @@ export class InputSelfFeedbackComponent implements OnInit {
       this.formQuestions.addControl(`question${i}`, fieldControl);
     });
 
-    setTimeout(() => this.formSelfFeedback.emit(this.formQuestions), 500);
+    this.formSelfFeedback.emit(this.formQuestions);
   }
 
 }

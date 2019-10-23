@@ -13,7 +13,7 @@
     <app-self-feedback (formEmiter)="formSelfFeedback=$event"></app-self-feedback>
   </div>
   <div class="mt-5" *ngSwitchCase="4">
-    <app-wheel-of-skills></app-wheel-of-skills>
+    <app-wheel-of-skills (formSkillsEmitter)="formSkills=$event"></app-wheel-of-skills>
   </div>
 </ng-container>
 

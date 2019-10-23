@@ -11,6 +11,7 @@ export class PersonalPageComponent implements OnInit {
 
   step = 4;
   formSelfFeedback: FormGroup;
+  formSkills: FormGroup;
 
   constructor() { }
 
@@ -31,6 +32,10 @@ export class PersonalPageComponent implements OnInit {
         this.step++;
         break;
       case 4:
+        FormUtil.validateForm(this.formSkills);
+        if (this.formSkills.invalid) {
+          return;
+        }
         this.step++;
         break;
       default:
