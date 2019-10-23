@@ -16,6 +16,7 @@ import { ListGoalsComponent } from './main/personal-page/goals/list-goals/list-g
 import { SelfFeedbackComponent } from './main/personal-page/self-feedback/self-feedback.component';
 import { InputSelfFeedbackComponent } from './main/personal-page/self-feedback/input-self-feedback/input-self-feedback.component';
 import { WheelOfSkillsComponent } from './main/personal-page/wheel-of-skills/wheel-of-skills.component';
+import { ActionPlanComponent } from './main/personal-page/action-plan/action-plan.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { WheelOfSkillsComponent } from './main/personal-page/wheel-of-skills/whe
     SelfFeedbackComponent,
     InputSelfFeedbackComponent,
     WheelOfSkillsComponent,
+    ActionPlanComponent,
   ],
   imports: [
     CommonModule,

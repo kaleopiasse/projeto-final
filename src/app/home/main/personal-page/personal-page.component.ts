@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalPageComponent implements OnInit {
 
-  step = 4;
+  step = 5;
   formSelfFeedback: FormGroup;
   formSkills: FormGroup;
 
@@ -26,17 +26,20 @@ export class PersonalPageComponent implements OnInit {
         break;
       case 3:
         FormUtil.validateForm(this.formSelfFeedback);
-        if (this.formSelfFeedback.invalid) {
-          return;
-        }
+        // if (this.formSelfFeedback.invalid) {
+        //   return;
+        // }
         this.step++;
         break;
       case 4:
         FormUtil.validateForm(this.formSkills);
-        if (this.formSkills.invalid) {
-          return;
-        }
+        // if (this.formSkills.invalid) {
+        //   return;
+        // }
         this.step++;
+        break;
+      case 5:
+        this.step = 1;
         break;
       default:
         this.step++;
