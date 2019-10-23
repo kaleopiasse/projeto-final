@@ -1,0 +1,43 @@
+<div class="card">
+  <h4 class="card-header">Plano de Ação</h4>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="col-10 d-inline-block p-0">
+          <mat-form-field class="d-inline">
+            <input matInput placeholder="O que quero melhorar?" [formControl]="formActionPlan.controls['improve']">
+          </mat-form-field>
+        </div>
+        <div class="col-2 d-inline-block">
+          <button type="button" class="btn btn-primary p-0 px-1" (click)="addImprove()">
+            <i class="fas fa-plus-square"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="col-10 d-inline-block p-0">
+          <mat-form-field class="d-inline">
+            <input matInput placeholder="Como posso melhorar?" [formControl]="formActionPlan.controls['howToImprove']">
+          </mat-form-field>
+        </div>
+        <div class="col-2 d-inline-block">
+          <button type="button" class="btn btn-primary p-0 px-1" (click)="addHowToImprove()">
+            <i class="fas fa-plus-square"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-list *ngIf="actionPlan.improve.length">
+          <mat-list-item *ngFor="let item of actionPlan.improve">{{ item }}</mat-list-item>
+        </mat-list>
+      </div>
+      <div class="col-6">
+        <mat-list *ngIf="actionPlan.howToImprove.length">
+          <mat-list-item *ngFor="let item of actionPlan.howToImprove">{{ item }}</mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>
