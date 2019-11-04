@@ -8,3 +8,6 @@ npm i @types/restify -D -E
 npm i nodemon -g
 nodemon dist/main.js
 
+npm i mongoose -P -E
+npm i @types/mongoose -D -E
+
