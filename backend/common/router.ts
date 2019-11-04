@@ -1,3 +1,5 @@
-export const environment = {
-  server: { port: process.env.SERVER_PORT || 3000 }
+import * as restify from 'restify';
+
+export abstract class Router {
+  abstract applyRoutes(application: restify.Server)
 }
