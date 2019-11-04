@@ -1,0 +1,10 @@
+#Inicializando projeto
+
+npm init -y
+
+npm i restify --save -E
+npm i @types/restify -D -E
+
+npm i nodemon -g
+nodemon dist/main.js
+
