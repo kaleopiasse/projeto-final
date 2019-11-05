@@ -11,11 +11,13 @@ export class Server {
   initializeDb() {
     (<any>mongoose).Promise = global.Promise
     return mongoose.connect(environment.db.url, {
-      useMongoClient: true
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true
     })
   }
 
-  initRoutes(routers: Router[]): Promise<any>{
+  initRoutes(routers: Router[]): Promise<any> {
     return new Promise((resolve, reject) => {
       try {
         this.application = restify.createServer({
@@ -24,14 +26,15 @@ export class Server {
         })
 
         this.application.use(restify.plugins.queryParser())
+        this.application.use(restify.plugins.bodyParser())
 
         //routes
         for (let router of routers) {
           router.applyRoutes(this.application)
         }
 
-        this.application.listen(environment.server.port, ()=>{
-           resolve(this.application)
+        this.application.listen(environment.server.port, () => {
+          resolve(this.application)
         })
 
       } catch (error) {
