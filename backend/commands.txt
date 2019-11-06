@@ -11,3 +11,11 @@ nodemon dist/main.js
 npm i mongoose -P -E
 npm i @types/mongoose -D -E
 
+#Errors
+npm i restify-errors -P -E
+npm i @types/restify-errors -D -E
+
+#Encriptar password
+npm i bcrypt -P -E
+npm i @types/bcrypt -D -E
+
