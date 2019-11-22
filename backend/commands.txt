@@ -23,3 +23,7 @@ npm i @types/bcrypt -D -E
 npm i jsonwebtoken -P -E
 npm i @types/jsonwebtoken -D -E
 
+#Cors
+npm i restify-cors-middleware -P -E
+npm i @types/restify-cors-middleware -D -E
+
