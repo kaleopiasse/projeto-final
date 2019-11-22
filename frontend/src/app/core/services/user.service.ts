@@ -13,6 +13,10 @@ export class UserService {
     private readonly http: HttpClient,
   ) { }
 
+  isAuthenticated() {
+    return sessionStorage.getItem('accessToken');
+  }
+
   setAuthToken(user: UserAuthenticate) {
     sessionStorage.setItem('email', user.email);
     sessionStorage.setItem('name', user.name);

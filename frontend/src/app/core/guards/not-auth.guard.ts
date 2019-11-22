@@ -11,45 +11,37 @@ import { UserService } from '../services/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
+export class NotAuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   constructor(
-    private readonly userService: UserService,
     private readonly router: Router,
-  ) {
+    private readonly userService: UserService,
+  ) {}
 
-  }
-
-  private verifyAccess(url: string) {
+  private verifyAccess() {
     if (this.userService.isAuthenticated()) {
-      return true;
+      this.router.navigate(['']);
+      return false;
     }
-
-    if (url !== 'login') {
-      this.router.navigate(['/login']);
-    } else {
-      return true;
-    }
-
-    return false;
+    return true;
   }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.verifyAccess(state.url.split('/')[0]);
+    return this.verifyAccess();
   }
 
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.verifyAccess(state.url.split('/')[0]);
+    return this.verifyAccess();
   }
 
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-    return this.verifyAccess(route.path);
+    return this.verifyAccess();
   }
 
 }
