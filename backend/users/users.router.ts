@@ -3,6 +3,8 @@ import { NotFoundError } from 'restify-errors';
 
 import { ModelRouter } from '../common/model-router';
 import { Router } from '../common/router';
+import { authenticate } from '../security/auth.handler';
+import { authorize } from '../security/authz.handler';
 import { User } from './users.model';
 
 class UsersRouter extends ModelRouter<User> {
@@ -15,14 +17,30 @@ class UsersRouter extends ModelRouter<User> {
     })
   }
 
+  findByEmail = (req, resp, next)=>{
+    if(req.query.email){
+      User.findByEmail(req.query.email)
+		  .then(user => user ? [user] : [])
+          .then(this.renderAll(resp, next, {
+                pageSize: this.pageSize,
+                url: req.url
+              }))
+          .catch(next)
+    }else{
+      next()
+    }
+  }
+
   applyRoutes(application: restify.Server){
 
-    application.get('/users', this.findAll)
-    application.get('/users/:id', [this.validateId, this.findById])
-    application.post('/users', this.save)
-    application.put('/users/:id', [this.validateId,this.replace])
-    application.patch('/users/:id', [this.validateId,this.update])
-    application.del('/users/:id', [this.validateId,this.delete])
+    application.get({path:`${this.basePath}`, version: '2.0.0'}, [ authorize('admin'), this.findByEmail, this.findAll ])
+    // application.get({path:`${this.basePath}`, version: '1.0.0'}, [ authorize('admin'), this.findAll ])
+    application.get(`${this.basePath}/:id`, [ authorize('admin'), this.validateId, this.findById])
+    application.post(`${this.basePath}`, this.save)
+    application.put(`${this.basePath}/:id`, [ authorize('admin'), this.validateId,this.replace])
+    application.patch(`${this.basePath}/:id`, [ authorize('admin'), this.validateId,this.update])
+    application.del(`${this.basePath}/:id`, [ authorize('admin'), this.validateId,this.delete])
+    application.post(`${this.basePath}/authenticate`, authenticate)
 
   }
 }
