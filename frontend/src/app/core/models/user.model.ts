@@ -8,3 +8,8 @@ export interface User {
   madeBy: string;
   type: number;
 }
+
+export interface UserAuthenticate {
+  email: string;
+  password: string;
+}
