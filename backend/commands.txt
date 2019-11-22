@@ -19,3 +19,7 @@ npm i @types/restify-errors -D -E
 npm i bcrypt -P -E
 npm i @types/bcrypt -D -E
 
+#Autenticação
+npm i jsonwebtoken -P -E
+npm i @types/jsonwebtoken -D -E
+

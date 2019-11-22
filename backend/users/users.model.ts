@@ -7,7 +7,15 @@ import { validateCPF } from '../common/validators';
 export interface User extends mongoose.Document {
   name: string,
   email: string,
-  password: string
+  password: string,
+  gender: string,
+  profiles: string[],
+  matches(password: string): boolean,
+  hasAny(...profiles: string[]): boolean
+}
+
+export interface UserModel extends mongoose.Model<User> {
+  findByEmail(email: string, projection?: string): Promise<User>
 }
 
 const userSchema = new mongoose.Schema({
@@ -40,8 +48,24 @@ const userSchema = new mongoose.Schema({
       validator: validateCPF,
       msg: props => `${props.path}: Invalid CPF ${props.value}`
     }
-  } as any
+  } as any,
+  profiles :{
+    type: [String],
+    required: false
+  }
 })
+
+userSchema.statics.findByEmail = function(email: string, projection: string){
+  return this.findOne({email}, projection) //{email: email}
+}
+
+userSchema.methods.matches = function(password: string): boolean {
+  return bcrypt.compareSync(password, this.password)
+}
+
+userSchema.methods.hasAny = function(...profiles: string[]) : boolean {
+  return profiles.some(profile => this.profiles.indexOf(profile)!== -1)
+}
 
 const hashPassword = (obj, next)=>{
   bcrypt.hash(obj.password, environment.security.saltRounds)
@@ -72,4 +96,4 @@ userSchema.pre('save', saveMiddleware)
 userSchema.pre('findOneAndUpdate', updateMiddleware)
 userSchema.pre('update', updateMiddleware)
 
-export const User = mongoose.model<User>('User', userSchema)
+export const User = mongoose.model<User, UserModel>('User', userSchema)
