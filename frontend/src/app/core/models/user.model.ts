@@ -10,6 +10,8 @@ export interface User {
 }
 
 export interface UserAuthenticate {
+  accessToken?: string;
+  name?: string;
   email: string;
   password: string;
 }

@@ -13,6 +13,12 @@ export class UserService {
     private readonly http: HttpClient,
   ) { }
 
+  setAuthToken(user: UserAuthenticate) {
+    sessionStorage.setItem('email', user.email);
+    sessionStorage.setItem('name', user.name);
+    sessionStorage.setItem('accessToken', user.accessToken);
+  }
+
   userAuthenticate(user: UserAuthenticate) {
     return this.http.post(service(ServiceEndpoints.UserAuthenticate), user);
   }
