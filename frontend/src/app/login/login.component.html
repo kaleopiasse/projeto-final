@@ -7,7 +7,7 @@
             Login
           </div>
           <div class="card-body">
-            <form class="example-form" [formGroup]="loginForm">
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <mat-form-field class="d-inline">
                 <input matInput placeholder="User" [formControl]="loginForm.controls.user">
                 <mat-error *ngIf="loginForm.controls.user.hasError('required')">
@@ -15,11 +15,17 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field class="d-inline">
-                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="loginForm.controls.password">
+                <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
+              <div class="pt-3">
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+              </div>
             </form>
           </div>
         </div>

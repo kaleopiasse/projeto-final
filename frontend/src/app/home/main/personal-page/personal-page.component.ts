@@ -1,6 +1,7 @@
 import { FormUtil } from 'src/app/core/utils';
-import { FormGroup } from '@angular/forms';
+
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-page',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalPageComponent implements OnInit {
 
-  step = 5;
+  step = 1;
   formSelfFeedback: FormGroup;
   formSkills: FormGroup;
 
