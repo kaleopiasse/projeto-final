@@ -6,6 +6,7 @@ import { validateCPF } from '../common/validators';
 import { UserType } from '../users-type/user-type.model';
 
 export interface User extends mongoose.Document {
+  _id: string,
   name: string,
   email: string,
   password: string,
@@ -43,27 +44,22 @@ const userSchema = new mongoose.Schema({
   },
   birthday: {
     type: Date,
-    select: false,
     required: true
   },
   office: {
     type: String,
-    select: false,
     required: true
   },
   admissionDate: {
     type: Date,
-    select: false,
     required: true
   },
   lastChangePosition: {
     type: Date,
-    select: false,
     required: false
   },
   userType: {
     type: Object,
-    select: false,
     required: true
   },
   profiles :{

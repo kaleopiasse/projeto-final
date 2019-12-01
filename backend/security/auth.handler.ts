@@ -14,7 +14,13 @@ export const authenticate: restify.RequestHandler = (req, resp, next)=>{
         //3rd
         const token = jwt.sign({sub: user.email, iss: 'pdi-api'},
                   environment.security.apiSecret)
-        resp.json({name: user.name, email: user.email, accessToken: token})
+        resp.json({
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          accessToken: token,
+          profiles: user.profiles
+        })
         return next(false)
       } else {
         return next(new NotAuthorizedError('Invalid Credentials'))
