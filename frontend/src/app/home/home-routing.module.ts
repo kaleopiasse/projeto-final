@@ -7,9 +7,10 @@ import { MainComponent } from './main/main.component';
 import { PersonalPageComponent } from './main/personal-page/personal-page.component';
 
 const childRoutes: Routes = [
-  { path: '', component: MainComponent },
-
   { path: 'personal/:id', component: PersonalPageComponent },
+
+  { path: '', loadChildren: './admin-sm/admin-sm.module#AdminSmModule' },
+
 ];
 
 const routes: Routes = [

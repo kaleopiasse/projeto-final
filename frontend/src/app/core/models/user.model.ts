@@ -1,17 +1,19 @@
 export interface User {
   name: string;
+  email: string;
   office: string;
-  birthDate: string;
-  effectiveDate: string;
-  lastChangeOffice: string;
+  birthday: string;
+  admissionDate: string;
+  lastChangePosition: string;
   lastPDI: string;
   madeBy: string;
   type: number;
 }
 
 export interface UserAuthenticate {
-  accessToken?: string;
-  name?: string;
   email: string;
   password: string;
+  _id?: string;
+  accessToken?: string;
+  name?: string;
 }
