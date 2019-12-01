@@ -7,8 +7,7 @@ class MainRouter extends Router {
     application.get('/', (req, resp, next)=>{
       resp.json({
         users: '/users',
-        restaurants: '/restaurants',
-        reviews: '/reviews'
+        usersType: '/usertypes'
       })
     })
   }

@@ -3,12 +3,17 @@ import * as mongoose from 'mongoose';
 
 import { environment } from '../common/environment';
 import { validateCPF } from '../common/validators';
+import { UserType } from '../users-type/user-type.model';
 
 export interface User extends mongoose.Document {
   name: string,
   email: string,
   password: string,
-  gender: string,
+  birthday: Date,
+  office: string,
+  admissionDate: Date,
+  lastChangePosition: Date,
+  userType: Object,
   profiles: string[],
   matches(password: string): boolean,
   hasAny(...profiles: string[]): boolean
@@ -36,19 +41,31 @@ const userSchema = new mongoose.Schema({
     select: false,
     required: true
   },
-  gender: {
-    type: String,
-    required: false,
-    enum: ['Male', 'Female']
+  birthday: {
+    type: Date,
+    select: false,
+    required: true
   },
-  cpf: {
+  office: {
     type: String,
-    required: false,
-    validate: {
-      validator: validateCPF,
-      msg: props => `${props.path}: Invalid CPF ${props.value}`
-    }
-  } as any,
+    select: false,
+    required: true
+  },
+  admissionDate: {
+    type: Date,
+    select: false,
+    required: true
+  },
+  lastChangePosition: {
+    type: Date,
+    select: false,
+    required: false
+  },
+  userType: {
+    type: Object,
+    select: false,
+    required: true
+  },
   profiles :{
     type: [String],
     required: false
