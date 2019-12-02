@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { CanActivate, RouterModule, Routes } from '@angular/router';
+
+import { NotAuthGuard } from './core/guards/not-auth.guard';
 
 const routes: Routes = [
 
   { path: '', loadChildren: './home/home.module#HomeModule' },
 
-  { path: 'login', loadChildren: './login/login.module#LoginModule' },
-
+  { path: 'login',
+    loadChildren: './login/login.module#LoginModule',
+    canActivate: [ NotAuthGuard ],
+    canActivateChild: [ NotAuthGuard ],
+    canLoad: [ NotAuthGuard ]
+  },
   { path: '**', redirectTo: '' },
 
 ];

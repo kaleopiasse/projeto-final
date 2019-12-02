@@ -1,0 +1,35 @@
+<div class="card">
+  <p class="card-header p-2">Ficha Pessoal</p>
+  <div class="card-body p-2">
+    <div class="row">
+      <div class="col-6">
+        <p class="card-title d-inline">Nome:</p>
+        <p class="pl-3 d-inline">{{ userInfo.name }}</p>
+      </div>
+      <div class="col-6">
+        <p class="card-title d-inline">Cargo:</p>
+        <p class="pl-3 d-inline">{{ userInfo.office }}</p>
+      </div>
+      <div class="col-6">
+        <p class="card-title d-inline">Data de Nascimento:</p>
+        <p class="pl-3 d-inline">{{ userInfo.birthday | date: 'dd/MM/yyyy'}}</p>
+      </div>
+      <div class="col-6">
+        <p class="card-title d-inline">Data de Efetivação: </p>
+        <p class="pl-3 d-inline">{{ userInfo.admissionDate | date: 'dd/MM/yyyy' }}</p>
+      </div>
+      <div class="col-6">
+        <p class="card-title d-inline">Última mudança de cargo: </p>
+        <p class="pl-3 d-inline">{{ userInfo.lastChangePosition || '---' }}</p>
+      </div>
+      <div class="col-6">
+        <p class="card-title d-inline">Último PDI: </p>
+        <p class="pl-3 d-inline">{{ userInfo.lastPDI || '---' }}</p>
+      </div>
+      <div class="col-6">
+        <p class="card-title d-inline">Feito por: </p>
+        <p class="pl-3 d-inline">{{ userInfo.madeBy || '---' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

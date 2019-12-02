@@ -1,17 +1,27 @@
 export interface User {
+  _id?: string;
   name: string;
+  email: string;
+  password: string;
   office: string;
-  birthDate: string;
-  effectiveDate: string;
-  lastChangeOffice: string;
-  lastPDI: string;
-  madeBy: string;
-  type: number;
+  birthday: string;
+  admissionDate: string;
+  lastChangePosition: string;
+  lastPDI?: string;
+  madeBy?: string;
+  profiles: string;
 }
 
 export interface UserAuthenticate {
-  accessToken?: string;
-  name?: string;
   email: string;
   password: string;
+  _id?: string;
+  accessToken?: string;
+  name?: string;
+}
+
+export interface UserTypes {
+  items: [{
+    type: string,
+  }];
 }
