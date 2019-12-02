@@ -60,11 +60,11 @@ const userSchema = new mongoose.Schema({
   },
   userType: {
     type: Object,
-    required: true
+    required: false
   },
   profiles :{
     type: [String],
-    required: false
+    required: true
   }
 })
 
