@@ -1,0 +1,21 @@
+<form class="pt-3" [formGroup]="userForm">
+  <mat-form-field class="d-inline">
+    <input type="search" matInput placeholder="Pesquisar Colaborador" [matAutocomplete]="auto"
+      [formControl]="userForm.controls['user']">
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+        <a class="d-flex justify-content-between" mat-line [href]="'personal/'+user._id">
+          <div>
+            <i class="fas fa-user-circle"></i>
+            {{ user.name }}
+          </div>
+          <div class="pl-5">
+            <i class="fas fa-calendar-day"></i>
+            Ultima Avaliação: {{ user.lastPDI || '---' }}
+          </div>
+        </a>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

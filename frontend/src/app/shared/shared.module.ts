@@ -1,37 +1,42 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatInputModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTableModule } from '@angular/material/table';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+    MatAutocompleteModule, MatButtonModule, MatCardModule, MatDatepickerModule, MatExpansionModule,
+    MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule,
+    MatSelectModule, MatTableModule
+} from '@angular/material';
 
 import { HeaderComponent } from './components/header/header.component';
 import {
     MovingMotivationalComponent
 } from './components/moving-motivational/moving-motivational.component';
 import { PersonalCardComponent } from './components/personal-card/personal-card.component';
+import {
+    SearchCollaboratorsComponent
+} from './components/search-collaborators/search-collaborators.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     MovingMotivationalComponent,
     PersonalCardComponent,
+    SearchCollaboratorsComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     DragDropModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatNativeDateModule,
     MatListModule,
     MatSelectModule,
     MatTableModule,
@@ -39,17 +44,21 @@ import { PersonalCardComponent } from './components/personal-card/personal-card.
   exports: [
     DragDropModule,
     HeaderComponent,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatNativeDateModule,
     MatListModule,
     MatSelectModule,
     MatTableModule,
     MovingMotivationalComponent,
     PersonalCardComponent,
+    SearchCollaboratorsComponent,
   ]
 })
 export class SharedModule { }

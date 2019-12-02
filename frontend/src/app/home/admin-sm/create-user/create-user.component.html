@@ -1,0 +1,99 @@
+<div class="card">
+  <div class="card-header">Novo Usuário</div>
+  <div class="card-body">
+    <form class="example-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput placeholder="Nome Completo" [formControl]="userForm.controls['name']">
+            <mat-error *ngIf="userForm.controls['name'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput placeholder="Email" [formControl]="userForm.controls['email']">
+            <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'"
+              [formControl]="userForm.controls['password']">
+            <mat-error *ngIf="userForm.controls['password'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput placeholder="Cargo" [formControl]="userForm.controls['office']">
+            <mat-error *ngIf="userForm.controls['office'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput [matDatepicker]="picker" placeholder="Data Nascimento"
+              [formControl]="userForm.controls['birthday']">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="userForm.controls['birthday'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput [matDatepicker]="picker2" placeholder="Data Admissão"
+              [formControl]="userForm.controls['admissionDate']">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error *ngIf="userForm.controls['admissionDate'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="d-inline">
+            <input matInput [matDatepicker]="picker3" placeholder="Ultima mudança de cargo"
+              [formControl]="userForm.controls['lastChangePosition']">
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+            <mat-error *ngIf="userForm.controls['lastChangePosition'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6" *ngIf="userTypes">
+          <mat-form-field>
+            <mat-label>Perfil do usúario</mat-label>
+            <mat-select [formControl]="userForm.controls['profiles']" required>
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let item of userTypes.items" [value]="item.type">
+                {{ item.type | uppercase }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="userForm.controls['profiles'].hasError('required')">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-secondary w-100" [routerLink]="['/']">Voltar</button>
+        </div>
+        <div class="col-sm-6">
+          <button type="submit" class="btn btn-primary w-100">Enviar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

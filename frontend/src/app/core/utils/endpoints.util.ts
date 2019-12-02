@@ -1,8 +1,10 @@
 import { environment } from '../../../environments/environment';
 
 export const enum ServiceEndpoints {
+    Users = 'users',
     UsersAuthenticate = 'users/authenticate',
     UsersById = 'users/{{0}}',
+    UserTypes = 'usertypes',
 }
 
 /** Interpola os parâmetros 'params[i]' nos '{{i}}' do endpoint, caso existam */

@@ -18,9 +18,6 @@ import { SelfFeedbackComponent } from './main/personal-page/self-feedback/self-f
 import {
     WheelOfSkillsComponent
 } from './main/personal-page/wheel-of-skills/wheel-of-skills.component';
-import {
-    SearchCollaboratorsComponent
-} from './main/search-collaborators/search-collaborators.component';
 import { TeamPanelComponent } from './main/team-panel/team-panel.component';
 
 @NgModule({
@@ -29,7 +26,6 @@ import { TeamPanelComponent } from './main/team-panel/team-panel.component';
     MainComponent,
     TeamPanelComponent,
     PersonalPageComponent,
-    SearchCollaboratorsComponent,
     GoalsComponent,
     InputGoalComponent,
     ListGoalsComponent,

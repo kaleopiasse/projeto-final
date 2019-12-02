@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { UserTypes } from 'src/app/core/models';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -28,7 +29,20 @@ export class UserService {
     return this.http.post(service(ServiceEndpoints.UsersAuthenticate), user);
   }
 
+  getAllUsers() {
+    return this.http.get(service(ServiceEndpoints.Users)) as Observable<{items: User[]}>;
+  }
+
+  getUserTypes() {
+    return this.http.get(service(ServiceEndpoints.UserTypes)) as Observable<UserTypes>;
+  }
+
   getUsersById(id: string) {
     return this.http.get(service(ServiceEndpoints.UsersById, id)) as Observable<User>;
   }
+
+  createUsers(user: User) {
+    return this.http.post(service(ServiceEndpoints.Users), user) as Observable<User>;
+  }
+
 }

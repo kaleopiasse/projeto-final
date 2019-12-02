@@ -2,10 +2,10 @@
   <div class="col-sm-12">
     <app-personal-card [userInfo]="userInfo" *ngIf="!loading"></app-personal-card>
   </div>
-  <div class="col-sm-6 pt-3">
-    <button type="button" class="btn btn-primary btn-lg btn-block">Criar novo usúario</button>
+  <div class="col-sm-8">
+    <app-search-collaborators></app-search-collaborators>
   </div>
-  <div class="col-sm-6 pt-3">
-    <button type="button" class="btn btn-primary btn-lg btn-block">Pesquisar usúarios cadastrados</button>
+  <div class="col-sm-4 pt-3">
+    <a type="link" class="btn btn-primary btn-lg btn-block" [routerLink]="['/create-user']">Criar novo usúario</a>
   </div>
 </div>
