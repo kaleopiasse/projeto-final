@@ -1,6 +1,7 @@
-import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormUtil } from 'src/app/core/utils';
+
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input-goal',

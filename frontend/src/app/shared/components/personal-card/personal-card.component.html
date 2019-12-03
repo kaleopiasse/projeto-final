@@ -20,11 +20,11 @@
       </div>
       <div class="col-6">
         <p class="card-title d-inline">Última mudança de cargo: </p>
-        <p class="pl-3 d-inline">{{ userInfo.lastChangePosition || '---' }}</p>
+        <p class="pl-3 d-inline">{{ userInfo.lastChangePosition | date: 'dd/MM/yyyy' || '---' }}</p>
       </div>
       <div class="col-6">
         <p class="card-title d-inline">Último PDI: </p>
-        <p class="pl-3 d-inline">{{ userInfo.lastPDI || '---' }}</p>
+        <p class="pl-3 d-inline">{{ userInfo.lastPDI | date: 'dd/MM/yyyy' || '---' }}</p>
       </div>
       <div class="col-6">
         <p class="card-title d-inline">Feito por: </p>

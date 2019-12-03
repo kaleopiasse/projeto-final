@@ -7,26 +7,18 @@ import {
     MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule,
     MatSelectModule, MatTableModule
 } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
-import { HeaderComponent } from './components/header/header.component';
-import {
-    MovingMotivationalComponent
-} from './components/moving-motivational/moving-motivational.component';
-import { PersonalCardComponent } from './components/personal-card/personal-card.component';
-import {
-    SearchCollaboratorsComponent
-} from './components/search-collaborators/search-collaborators.component';
+import { components } from './components';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    MovingMotivationalComponent,
-    PersonalCardComponent,
-    SearchCollaboratorsComponent,
+    ...components,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     DragDropModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -43,7 +35,6 @@ import {
   ],
   exports: [
     DragDropModule,
-    HeaderComponent,
     MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
@@ -56,9 +47,7 @@ import {
     MatListModule,
     MatSelectModule,
     MatTableModule,
-    MovingMotivationalComponent,
-    PersonalCardComponent,
-    SearchCollaboratorsComponent,
+    ...components,
   ]
 })
 export class SharedModule { }

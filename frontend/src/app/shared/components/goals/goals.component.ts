@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { Goal } from 'src/app/core/models';
+
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-goals',
@@ -7,6 +8,8 @@ import { Goal } from 'src/app/core/models';
   styleUrls: ['./goals.component.scss']
 })
 export class GoalsComponent implements OnInit {
+
+  @Output() goalsEmiter = new EventEmitter();
 
   showAddGoal = true;
   goals = { 1: [], 2: [], 3: [], 4: [], 5: [] };
@@ -22,6 +25,7 @@ export class GoalsComponent implements OnInit {
 
   reciverGoal(goal: Goal) {
     this.goals[goal.period].push(goal);
+    this.goalsEmiter.emit(this.goals);
   }
 
 }
