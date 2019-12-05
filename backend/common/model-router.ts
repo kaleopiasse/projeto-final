@@ -68,7 +68,7 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
   }
 
   findById = (req, resp, next)=>{
-    this.model.findById(req.params.id)
+    this.prepareOne(this.model.findById(req.params.id))
         .then(this.render(resp, next))
         .catch(next)
   }

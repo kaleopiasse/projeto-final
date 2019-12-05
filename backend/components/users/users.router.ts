@@ -1,10 +1,10 @@
 import * as restify from 'restify';
 import { NotFoundError } from 'restify-errors';
 
-import { ModelRouter } from '../common/model-router';
-import { Router } from '../common/router';
-import { authenticate } from '../security/auth.handler';
-import { authorize } from '../security/authz.handler';
+import { ModelRouter } from '../../common/model-router';
+import { Router } from '../../common/router';
+import { authenticate } from '../../security/auth.handler';
+import { authorize } from '../../security/authz.handler';
 import { User } from './users.model';
 
 class UsersRouter extends ModelRouter<User> {

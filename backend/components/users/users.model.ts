@@ -1,8 +1,8 @@
 import * as bcrypt from 'bcrypt';
 import * as mongoose from 'mongoose';
 
-import { environment } from '../common/environment';
-import { validateCPF } from '../common/validators';
+import { environment } from '../../common/environment';
+import { validateCPF } from '../../common/validators';
 import { UserType } from '../users-type/user-type.model';
 
 export interface User extends mongoose.Document {
