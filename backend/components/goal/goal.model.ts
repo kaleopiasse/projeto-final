@@ -1,4 +1,3 @@
-import * as bcrypt from 'bcrypt';
 import { ObjectID } from 'bson';
 import * as mongoose from 'mongoose';
 
