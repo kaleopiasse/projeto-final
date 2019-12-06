@@ -18,11 +18,21 @@ export class UserService {
     return sessionStorage.getItem('accessToken');
   }
 
+  isAdminOrSm() {
+    const profile = sessionStorage.getItem('profile');
+    if (profile === 'admin' || profile === 'sm') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   setAuthToken(user: UserAuthenticate) {
     sessionStorage.setItem('_id', user._id);
     sessionStorage.setItem('email', user.email);
     sessionStorage.setItem('name', user.name);
     sessionStorage.setItem('accessToken', user.accessToken);
+    sessionStorage.setItem('profile', user.profiles[0]);
   }
 
   userAuthenticate(user: UserAuthenticate) {

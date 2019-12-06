@@ -1,4 +1,7 @@
+import { UserService } from 'src/app/core/services';
+
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private readonly userService: UserService,
+    private readonly router: Router,
+  ) { }
 
   ngOnInit() {
+    if (!this.userService.isAdminOrSm()) {
+      this.router.navigate(['/', sessionStorage.getItem('_id')]);
+    }
   }
 
 }

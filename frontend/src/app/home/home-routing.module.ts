@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 
 const childRoutes: Routes = [
   { path: '', loadChildren: './admin-sm/admin-sm.module#AdminSmModule' },
+  { path: ':id', loadChildren: './collaborator/collaborator.module#CollaboratorModule' },
 ];
 
 const routes: Routes = [

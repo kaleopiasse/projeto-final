@@ -35,7 +35,7 @@ class UsersRouter extends ModelRouter<User> {
 
     application.get({path:`${this.basePath}`, version: '2.0.0'}, [ authorize('admin'), this.findByEmail, this.findAll ])
     // application.get({path:`${this.basePath}`, version: '1.0.0'}, [ authorize('admin'), this.findAll ])
-    application.get(`${this.basePath}/:id`, [ authorize('admin'), this.validateId, this.findById])
+    application.get(`${this.basePath}/:id`, [ authorize('admin','colaborador'), this.validateId, this.findById])
     application.post(`${this.basePath}`, this.save)
     application.put(`${this.basePath}/:id`, [ authorize('admin'), this.validateId,this.replace])
     application.patch(`${this.basePath}/:id`, [ authorize('admin'), this.validateId,this.update])

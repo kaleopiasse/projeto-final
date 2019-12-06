@@ -18,6 +18,7 @@ export interface UserAuthenticate {
   _id?: string;
   accessToken?: string;
   name?: string;
+  profiles?: string[];
 }
 
 export interface UserTypes {
