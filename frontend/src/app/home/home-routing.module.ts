@@ -5,9 +5,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
 import { HomeComponent } from './home.component';
 
 const childRoutes: Routes = [
-
   { path: '', loadChildren: './admin-sm/admin-sm.module#AdminSmModule' },
-
 ];
 
 const routes: Routes = [

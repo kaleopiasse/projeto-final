@@ -1,6 +1,10 @@
 import { environment } from '../../../environments/environment';
 
 export const enum ServiceEndpoints {
+    Goals = 'goals',
+    Periods = 'periods',
+    Pdis = 'pdis',
+    Status = 'status',
     Users = 'users',
     UsersAuthenticate = 'users/authenticate',
     UsersById = 'users/{{0}}',

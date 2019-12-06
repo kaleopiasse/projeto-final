@@ -1,4 +1,6 @@
-import { Goal } from 'src/app/core/models';
+import { tap } from 'rxjs/operators';
+import { GoalModel, StatusOrPeriodModel } from 'src/app/core/models';
+import { GoalsService } from 'src/app/core/services';
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
@@ -12,20 +14,29 @@ export class GoalsComponent implements OnInit {
   @Output() goalsEmiter = new EventEmitter();
 
   showAddGoal = true;
-  goals = { 1: [], 2: [], 3: [], 4: [], 5: [] };
+  goals: GoalModel[] = [];
+  periods: StatusOrPeriodModel[];
 
-  constructor() { }
+  constructor(
+    private readonly goalsService: GoalsService,
+  ) { }
 
   ngOnInit() {
+    this.goalsService.getGoalPeriods()
+    .pipe(
+      tap( res => {
+        this.periods = res.items;
+      })
+    ).subscribe();
   }
 
   addGoal() {
     this.showAddGoal = false;
   }
 
-  reciverGoal(goal: Goal) {
-    this.goals[goal.period].push(goal);
+  reciverGoal(goal: GoalModel) {
+    this.goals.push(goal);
+    this.goals.sort((a, b) => a.key - b.key);
     this.goalsEmiter.emit(this.goals);
   }
-
 }

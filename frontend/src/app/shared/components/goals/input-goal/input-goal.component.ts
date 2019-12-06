@@ -1,7 +1,10 @@
+import { tap } from 'rxjs/operators';
+import { StatusOrPeriodModel } from 'src/app/core/models';
 import { FormUtil } from 'src/app/core/utils';
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-input-goal',
@@ -11,27 +14,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class InputGoalComponent implements OnInit {
 
+  @Input() periods: StatusOrPeriodModel[];
+
+  @Output() goals = new EventEmitter();
+  @Output() cancel = new EventEmitter();
+
+  pdiId: string;
+
   goalForm = new FormGroup({
     description: new FormControl('', [Validators.required]),
     period: new FormControl('', [Validators.required]),
     validator: new FormControl('', [Validators.required])
   });
 
-  @Output() goals = new EventEmitter();
-  @Output() cancel = new EventEmitter();
-
-  period = [
-    {text: 'Próximos 3 meses', value: 1},
-    {text: 'Próximos 6 meses', value: 2},
-    {text: 'Daqui 1 ano', value: 3},
-    {text: 'Daqui 2 anos', value: 4},
-    {text: 'Daqui 3 anos', value: 5},
-  ];
-
-
-  constructor() { }
+  constructor(
+    private readonly activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(res => this.pdiId = res.pdi_id);
   }
 
   addGoal() {
@@ -43,10 +44,12 @@ export class InputGoalComponent implements OnInit {
     }
 
     this.goals.emit({
-        period: this.goalForm.value.period,
+        period_id: this.goalForm.value.period,
         description: this.goalForm.value.description,
         validator: this.goalForm.value.validator,
         status: 'progress',
+        key: this.periods.find( item => item._id === this.goalForm.value.period).key,
+        pdi_id: this.pdiId
     });
 
     this.cancelGoal();

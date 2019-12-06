@@ -1,11 +1,10 @@
 import { tap } from 'rxjs/operators';
-import { User } from 'src/app/core/models';
-import { UserService } from 'src/app/core/services';
-import { FormUtil } from 'src/app/core/utils';
+import { PdiModel, User } from 'src/app/core/models';
+import { GoalsService, PdiService, UserService } from 'src/app/core/services';
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-pdi',
@@ -14,69 +13,48 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreatePdiComponent implements OnInit {
 
-  userId: string;
-  userInfo: User;
+  collaboratorId: string;
+  collaboratorInfo: User;
   loading = true;
 
-  step = 1;
-  formSelfFeedback: FormGroup;
-  formSkills: FormGroup;
-  goals;
+  smId: string;
+
+  pdiId: string;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
+    private readonly pdiService: PdiService,
+    private readonly router: Router,
     private readonly userService: UserService,
   ) {
-    this.activatedRoute.params.subscribe(res => this.userId = res.id);
+    this.activatedRoute.params.subscribe(res => this.collaboratorId = res.id);
   }
 
   ngOnInit() {
-    this.userService.getUsersById(this.userId)
+    this.smId = sessionStorage.getItem('_id');
+    this.userService.getUsersById(this.collaboratorId)
       .pipe(
         tap(res => {
-          this.userInfo = res;
+          this.collaboratorInfo = res;
           this.loading = false;
         }),
       ).subscribe();
   }
 
-  continue() {
-    switch (this.step) {
-      case 1:
-        this.step++;
-        break;
-      case 2:
-        console.log(this.goals);
-        break;
-      case 3:
-        FormUtil.validateForm(this.formSelfFeedback);
-        // if (this.formSelfFeedback.invalid) {
-        //   return;
-        // }
-        this.step++;
-        break;
-      case 4:
-        FormUtil.validateForm(this.formSkills);
-        // if (this.formSkills.invalid) {
-        //   return;
-        // }
-        this.step++;
-        break;
-      case 5:
-        this.step = 1;
-        break;
-      default:
-        this.step++;
-        break;
-    }
-  }
 
-  back() {
-    switch (this.step) {
-      default:
-        this.step--;
-        break;
-    }
+
+  createPdi() {
+    const pdi: PdiModel = {
+      user_collaborator_id: this.collaboratorId,
+      user_sm_id: this.smId
+    };
+    this.pdiService.createPdis(pdi)
+      .pipe(
+        tap(res => {
+          this.pdiId = res._id;
+          this.router.navigate(['pdi', this.pdiId], { relativeTo: this.activatedRoute });
+        })
+      ).subscribe();
   }
 
 }

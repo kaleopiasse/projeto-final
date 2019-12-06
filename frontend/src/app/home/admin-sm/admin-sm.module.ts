@@ -6,14 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AdminSmRoutingModule } from './admin-sm-routing.module';
 import { AdminSmComponent } from './admin-sm.component';
-import { CreateUserComponent } from './create-user/create-user.component';
 import { CreatePdiComponent } from './create-pdi/create-pdi.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
     AdminSmComponent,
     CreateUserComponent,
-    CreatePdiComponent,
   ],
   imports: [
     CommonModule,

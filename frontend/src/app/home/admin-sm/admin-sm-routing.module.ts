@@ -8,7 +8,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 const routes: Routes = [
   { path: '', component: AdminSmComponent },
   { path: 'create-user', component: CreateUserComponent },
-  { path: 'collaborator/:id', component: CreatePdiComponent }
+  { path: 'collaborator/:id', loadChildren: './create-pdi/create-pdi.module#CreatePdiModule' },
 ];
 
 @NgModule({
