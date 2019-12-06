@@ -7,7 +7,7 @@ export interface User {
   birthday: string;
   admissionDate: string;
   lastChangePosition: string;
-  lastPDI?: string;
+  lastPDI?: Date;
   madeBy?: string;
   profiles: string;
 }

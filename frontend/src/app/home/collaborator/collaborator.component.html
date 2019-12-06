@@ -2,7 +2,10 @@
     <div class="col-sm-12">
       <app-personal-card [userInfo]="userInfo" *ngIf="!loading"></app-personal-card>
     </div>
-    <div class="col-sm-4 pt-3">
-      <a type="link" class="btn btn-primary btn-lg btn-block" [routerLink]="['/create-user']">Criar novo usúario</a>
+    <div class="col-sm-6 pt-3">
+      <p>Histórico de avaliações</p>
+      <a type="link" class="btn btn-primary" [routerLink]="['pdi/' + item._id]" *ngFor="let item of pdis">
+        {{ 'Data: ' + item.date + ' Feito por: ' + item.user_sm_id.name}}
+      </a>
     </div>
   </div>

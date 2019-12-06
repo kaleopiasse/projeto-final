@@ -5,9 +5,10 @@ import { NgModule } from '@angular/core';
 
 import { CollaboratorRoutingModule } from './collaborator-routing.module';
 import { CollaboratorComponent } from './collaborator.component';
+import { PdiComponent } from './pdi/pdi.component';
 
 @NgModule({
-  declarations: [CollaboratorComponent],
+  declarations: [CollaboratorComponent, PdiComponent],
   imports: [
     CommonModule,
     SharedModule,

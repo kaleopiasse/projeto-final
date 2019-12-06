@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs';
+import { GoalModel } from 'src/app/core/models';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { GoalModel } from '../../../../../backend/components/goal/goal.model';
 import { StatusOrPeriodModel } from '../models/goal.model';
 import { ServiceEndpoints } from '../utils';
 import { service } from '../utils/endpoints.util';
@@ -21,6 +21,10 @@ export class GoalsService {
 
   getGoalPeriods() {
     return this.http.get(service(ServiceEndpoints.Periods)) as Observable<{items: StatusOrPeriodModel[]}>;
+  }
+
+  getGoalByPdi(id: string) {
+    return this.http.get(service(ServiceEndpoints.GoalsByPdi, id)) as Observable<{ items: GoalModel[]}>;
   }
 
   createGoals(goals: GoalModel[]) {

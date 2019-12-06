@@ -5,6 +5,7 @@ export const enum ServiceEndpoints {
     GoalsByPdi = 'goals/{{0}}',
     Periods = 'periods',
     Pdis = 'pdis',
+    PdiByCollaboratorId = 'pdis/collaborator/{{0}}',
     Status = 'status',
     SelfFeedbacks = 'selffeedbacks',
     SelfFeedbacksByPdi = 'selffeedbacks/{{0}}',

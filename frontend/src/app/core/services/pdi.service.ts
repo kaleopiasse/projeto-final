@@ -13,6 +13,10 @@ export class PdiService {
     private readonly http: HttpClient,
   ) { }
 
+  getPdiByCollaboratorId(id: string) {
+    return this.http.get(service(ServiceEndpoints.PdiByCollaboratorId, id)) as Observable<PdiModel[]>;
+  }
+
   createPdis(pdi: PdiModel) {
     return this.http.post(service(ServiceEndpoints.Pdis), pdi) as Observable<PdiModel>;
   }
