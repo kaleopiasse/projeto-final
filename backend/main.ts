@@ -1,12 +1,21 @@
+import { goalsRouter } from './components/goal/goal.router';
+import { pdisRouter } from './components/pdi/pdi.router';
+import { PeriodModel } from './components/period/period.model';
+import { periodsRouter } from './components/period/period.router';
+import { statusRouter } from './components/status/status.router';
+import { usersTypeRouter } from './components/users-type/user-type.router';
+import { usersRouter } from './components/users/users.router';
 import { mainRouter } from './main.router';
 import { Server } from './server/server';
-import { usersTypeRouter } from './users-type/user-type.router';
-import { usersRouter } from './users/users.router';
 
 const server = new Server()
 server.bootstrap([
   usersRouter,
   usersTypeRouter,
+  pdisRouter,
+  periodsRouter,
+  goalsRouter,
+  statusRouter,
   mainRouter
 ]).then(server=>{
   console.log('Server is listening on:', server.application.address())

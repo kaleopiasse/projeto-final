@@ -1,0 +1,14 @@
+
+  <div class="mt-5">
+    <app-personal-card [userInfo]="collaboratorInfo" *ngIf="!loading"></app-personal-card>
+  </div>
+
+
+<div class="pt-3 d-flex justify-content-end">
+  <div class="col-6 col-md-3 p-0 pr-1 pr-md-2">
+    <button type="button" class="btn btn-secondary w-100"><i class="pr-2 fas fa-arrow-left"></i>Voltar</button>
+  </div>
+  <div class="col-6 col-md-3 p-0 pl-1 pl-md-2">
+    <button type="button" class="btn btn-primary w-100" (click)="createPdi()">Iniciar Nova Avaliação<i class="pl-2 fas fa-arrow-right"></i></button>
+  </div>
+</div>

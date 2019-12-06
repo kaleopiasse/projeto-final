@@ -1,0 +1,51 @@
+<div class="mt-4" *ngIf="goals.length">
+<mat-list-item>
+  <div mat-line class="row" [ngClass]="{ 'pt-2': !isFirst }">
+    <div class="col-3 font-weight-bold">
+      <p class="d-inline">Meta</p>
+    </div>
+    <div class="col-3 font-weight-bold">
+      <p class="d-inline">Validador</p>
+    </div>
+    <div class="col-3 font-weight-bold">
+      <p class="d-inline">Periodo</p>
+    </div>
+    <div class="col-3 d-flex font-weight-bold">
+      <p class="d-inline">Status</p>
+    </div>
+  </div>
+  <ng-container *ngFor="let item of goals; let isFirst = first;">
+    <div mat-line class="row" [ngClass]="{ 'pt-2': !isFirst }">
+      <div class="col-3">
+        <p class="d-inline">{{ item.description }}</p>
+      </div>
+      <div class="col-3">
+        <p class="d-inline"> {{ item.validator }}</p>
+      </div>
+      <div class="col-3">
+        <p class="d-inline"> {{ getPeriodDescription(item.period_id) }}</p>
+      </div>
+      <div class="col-3 d-flex justify-content-start">
+        <div>
+          <button type="button" class="px-2 py-1 btn"
+            [ngClass]="item.status === 'progress' ? 'btn-primary' : 'btn-secondary'">
+            <i class="fas fa-running"></i>
+          </button>
+        </div>
+        <div class="pl-2">
+          <button type="button" class="px-2 py-1 btn"
+            [ngClass]="item.status === 'completed' ? 'btn-sucess' : 'btn-secondary'">
+            <i class="fas fa-check-square"></i>
+          </button>
+        </div>
+        <div class="pl-2">
+          <button type="button" class="px-2 py-1 btn"
+            [ngClass]="item.status === 'canceled' ? 'btn-danger' : 'btn-secondary'">
+            <i class="fas fa-window-close"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</mat-list-item>
+</div>

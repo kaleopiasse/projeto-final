@@ -5,7 +5,7 @@
 
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
-        <a class="d-flex justify-content-between" mat-line [href]="'personal/'+user._id">
+        <a class="d-flex justify-content-between" mat-line [routerLink]="['collaborator/'+user._id]">
           <div>
             <i class="fas fa-user-circle"></i>
             {{ user.name }}

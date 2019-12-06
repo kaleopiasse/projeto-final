@@ -2,7 +2,7 @@ import * as jwt from 'jsonwebtoken';
 import * as restify from 'restify';
 
 import { environment } from '../common/environment';
-import { User } from '../users/users.model';
+import { User } from '../components/users/users.model';
 
 export const tokenParser: restify.RequestHandler = (req, resp, next) => {
   const token = extractToken(req)

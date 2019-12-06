@@ -3,7 +3,7 @@ import * as restify from 'restify';
 import { NotAuthorizedError } from 'restify-errors';
 
 import { environment } from '../common/environment';
-import { User } from '../users/users.model';
+import { User } from '../components/users/users.model';
 
 export const authenticate: restify.RequestHandler = (req, resp, next)=>{
   const {email, password} = req.body
