@@ -3,7 +3,10 @@
     <app-goals (goalsEmiter)="goals=$event"></app-goals>
   </div>
   <div class="mt-5" *ngSwitchCase="2">
-    <app-self-feedback (formEmiter)="formSelfFeedback=$event"></app-self-feedback>
+    <app-self-feedback
+      (formEmiter)="formSelfFeedback=$event"
+      (questionsEmiter)="questionsFormSelfFeedback=$event"
+    ></app-self-feedback>
   </div>
   <div class="mt-5" *ngSwitchCase="3">
     <app-wheel-of-skills (formSkillsEmitter)="formSkills=$event"></app-wheel-of-skills>

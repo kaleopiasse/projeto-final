@@ -1,5 +1,7 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { SelfFeedbackQuestionModel } from '../../../../core/models/self-feedbacks.model';
 
 @Component({
   selector: 'app-input-self-feedback',
@@ -8,7 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class InputSelfFeedbackComponent implements OnInit {
 
-  @Input() questions;
+  @Input() questions: SelfFeedbackQuestionModel[];
   @Output() formSelfFeedback = new EventEmitter();
 
   formQuestions: FormGroup;
@@ -20,9 +22,9 @@ export class InputSelfFeedbackComponent implements OnInit {
   ngOnInit() {
     this.formQuestions = this.formBuilder.group({});
 
-    this.questions.forEach((item, i) => {
+    this.questions.forEach(item => {
       const fieldControl = this.formBuilder.control('', Validators.required);
-      this.formQuestions.addControl(`question${i}`, fieldControl);
+      this.formQuestions.addControl(`${item.key}`, fieldControl);
     });
 
     this.formSelfFeedback.emit(this.formQuestions);

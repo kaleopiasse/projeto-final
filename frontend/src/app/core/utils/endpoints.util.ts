@@ -2,13 +2,18 @@ import { environment } from '../../../environments/environment';
 
 export const enum ServiceEndpoints {
     Goals = 'goals',
+    GoalsByPdi = 'goals/{{0}}',
     Periods = 'periods',
     Pdis = 'pdis',
     Status = 'status',
+    SelfFeedbacks = 'selffeedbacks',
+    SelfFeedbacksByPdi = 'selffeedbacks/{{0}}',
     Users = 'users',
     UsersAuthenticate = 'users/authenticate',
     UsersById = 'users/{{0}}',
     UserTypes = 'usertypes',
+    WheelOfSkills = 'wheelofskills',
+    WheelOfSkillsByPdi = 'wheelofskills/{{0}}'
 }
 
 /** Interpola os parâmetros 'params[i]' nos '{{i}}' do endpoint, caso existam */

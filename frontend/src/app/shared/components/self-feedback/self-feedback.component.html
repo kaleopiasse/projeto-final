@@ -1,6 +1,9 @@
 <div class="card">
   <h4 class="card-header">Auto Feedback</h4>
   <div class="card-body">
-    <app-input-self-feedback [questions]="questions" (formSelfFeedback)="emitForm($event)"></app-input-self-feedback>
+    <app-input-self-feedback
+      [questions]="questions"
+      (formSelfFeedback)="emitForm($event)"
+    ></app-input-self-feedback>
   </div>
 </div>
