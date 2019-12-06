@@ -1,41 +1,36 @@
-import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { WheelOfSkillsSkillModel } from 'src/app/core/models';
+
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-action-plan',
   templateUrl: './action-plan.component.html',
   styleUrls: ['./action-plan.component.scss']
 })
-export class ActionPlanComponent implements OnInit {
+export class ActionPlanComponent {
+
+  @Input() skills: WheelOfSkillsSkillModel[];
+  @Output() actionPlanEmitter = new EventEmitter();
 
   formActionPlan = new FormGroup({
     improve: new FormControl(),
     howToImprove: new FormControl(),
   });
 
-  actionPlan = {
-    improve: [],
-    howToImprove: [],
-  };
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  addImprove() {
-    if (this.formActionPlan.controls.improve.value === null) {
-      return;
-    }
-    this.actionPlan.improve.push(this.formActionPlan.controls.improve.value);
-    this.formActionPlan.controls.improve.reset();
-  }
+  actionPlan: {
+    improve: string;
+    howToImprove: string;
+  }[] = [];
 
   addHowToImprove() {
-    if (this.formActionPlan.controls.howToImprove.value === null) {
-      return;
-    }
-    this.actionPlan.howToImprove.push(this.formActionPlan.controls.howToImprove.value);
+    this.actionPlan.push({
+      improve:  this.skills.find(item => item.key === this.formActionPlan.controls.improve.value).description,
+      howToImprove: this.formActionPlan.controls.howToImprove.value,
+    });
+
+    this.actionPlanEmitter.emit(this.actionPlan);
+
     this.formActionPlan.controls.howToImprove.reset();
   }
 

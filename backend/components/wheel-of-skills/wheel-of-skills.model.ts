@@ -8,7 +8,10 @@ export interface WheelOfSkill extends mongoose.Document {
   _id: string,
   pdi_id: ObjectID | PdiModel,
   skills: Skill[],
-  action_plan: string,
+  action_plan: {
+    improve: string,
+    howToImprove: string,
+  }[],
 }
 
 export interface Skill extends mongoose.Document {
@@ -41,7 +44,7 @@ const skillsSchema = new mongoose.Schema({
   },
   comments: {
     type: String,
-    required: true,
+    required: false,
   },
 })
 
@@ -56,7 +59,7 @@ const wheelOfSkillSchema = new mongoose.Schema({
     required: true,
   },
   action_plan: {
-    type: String,
+    type: [],
     required: true,
   },
 })

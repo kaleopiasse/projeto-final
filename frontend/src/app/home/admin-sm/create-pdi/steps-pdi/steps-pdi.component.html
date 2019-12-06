@@ -9,10 +9,16 @@
     ></app-self-feedback>
   </div>
   <div class="mt-5" *ngSwitchCase="3">
-    <app-wheel-of-skills (formSkillsEmitter)="formSkills=$event"></app-wheel-of-skills>
+    <app-wheel-of-skills
+      (formSkillsEmitter)="formSkills=$event"
+      (jsonSkillsEmitter)="jsonSkills=$event"
+    ></app-wheel-of-skills>
   </div>
   <div class="mt-5" *ngSwitchCase="4">
-    <app-action-plan></app-action-plan>
+    <app-action-plan
+      [skills]="jsonSkills"
+      (actionPlanEmitter)="actionPlan=$event"
+    ></app-action-plan>
   </div>
 </ng-container>
 
