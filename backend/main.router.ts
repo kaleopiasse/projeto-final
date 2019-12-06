@@ -10,8 +10,10 @@ class MainRouter extends Router {
         usersType: '/usertypes',
         pdis: '/pdis',
         periods: '/periods',
-        goals: 'goals',
-        status: 'status'
+        goals: '/goals',
+        status: '/status',
+        selffeedbacks: '/selffeedbacks',
+        wheelofskills: '/wheelofskills',
       })
     })
   }

@@ -18,7 +18,7 @@ class GoalsRouter extends ModelRouter<Goal> {
 
   applyRoutes(application: restify.Server) {
     application.get(`${this.basePath}`, this.findAll)
-    application.get(`${this.basePath}/:id`, this.findGoalsByPdi)
+    application.get(`${this.basePath}/:id`, [this.validateId, this.findGoalsByPdi])
     application.post(`${this.basePath}`, this.insertMany)
   }
 
