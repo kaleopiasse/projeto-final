@@ -1,7 +1,63 @@
-<p>Metas</p>
+<h5>Metas</h5>
+<table class="table" *ngIf="!loadingGoals">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Meta</th>
+      <th scope="col">Validador</th>
+      <th scope="col">Periodo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of goals">
+      <td>{{ item.description }}</td>
+      <td>{{ item.validator }}</td>
+      <td>{{ getPeriodString(item.period_id) }}</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of goals">{{ item.description +' '+ item.validator }}</li>
+<hr>
+
+<h5>Auto Feedback</h5>
+<ul class="list-group" *ngIf="!loadingSelfFeedbacks">
+  <li class="list-group-item" *ngFor="let item of selfFeedbacks">
+    <p class="font-weight-bold m-0">{{ item.key+'. '+item.description }}</p>
+    <p class="m-0">{{ 'R: '+ item.answer }}</p>
+  </li>
+</ul>
+
+<hr>
+
+<h5>Roda das Competências</h5>
+<table class="table" *ngIf="!loadingWheelsOfSkills">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Competência</th>
+      <th scope="col">Nota Pessoal</th>
+      <th scope="col">Objetivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of wheelOfSkills.skills">
+      <td>{{ item.description }}</td>
+      <td>{{ item.personalNote }}</td>
+      <td>{{ item.objective }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>Auto Feedback</h5>
+<ul class="list-group" *ngIf="!loadingWheelsOfSkills">
+  <li class="list-group-item" *ngFor="let item of wheelOfSkills.action_plan">
+    <div>
+      <p class="font-weight-bold m-0 d-inline">O que melhorar:</p>
+      <p class="pl-3 m-0 d-inline">{{ item.improve }}</p>
+    </div>
+    <div>
+      <p class="font-weight-bold m-0 d-inline">Como melhorar:</p>
+      <p class="pl-3 m-0 d-inline">{{ item.howToImprove }}</p>
+    </div>
+  </li>
 </ul>
 
 

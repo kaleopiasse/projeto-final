@@ -16,4 +16,8 @@ export class SelfFeedbackService {
   createSelfFeedback(selfFeedback: SelfFeedbackModel) {
     return this.http.post(service(ServiceEndpoints.SelfFeedbacks), selfFeedback) as Observable<SelfFeedbackModel>;
   }
+
+  getSelfFeedbacksByPdi(id: string) {
+    return this.http.get(service(ServiceEndpoints.SelfFeedbacksByPdi, id)) as Observable<{ items: SelfFeedbackModel[]}>;
+  }
 }

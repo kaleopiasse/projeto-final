@@ -17,4 +17,7 @@ export class WheelOfSkillService {
     return this.http.post(service(ServiceEndpoints.WheelOfSkills), wheelOfSkills) as Observable<WheelOfSkillsModel>;
   }
 
+  getWhellOfSkillsByPdi(id: string) {
+    return this.http.get(service(ServiceEndpoints.WheelOfSkillsByPdi, id)) as Observable<{ items: WheelOfSkillsModel[]}>;
+  }
 }

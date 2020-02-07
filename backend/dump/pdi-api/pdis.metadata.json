@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"pdi-api.pdis"}],"uuid":"49f09a6b457145d28a4f64ae62cc71a4"}

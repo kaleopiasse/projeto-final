@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     if (!this.userService.isAdminOrSm()) {
-      this.router.navigate(['/', sessionStorage.getItem('_id')]);
+      this.router.navigate(['/user-collaborator/', sessionStorage.getItem('_id')]);
     }
   }
 

@@ -27,3 +27,8 @@ npm i @types/jsonwebtoken -D -E
 npm i restify-cors-middleware -P -E
 npm i @types/restify-cors-middleware -D -E
 
+#Criando dump da database
+/usr/bin$ mongodump --db pdi-api --out /home/kaleo/Projetos/projeto-final/backend/dump
+
+#Fazendo restore da database, antes de executar é necessario criar a database
+/usr/bin$ mongorestore --db test-dump /home/kaleo/Projetos/projeto-final/backend/dump/pdi-api
